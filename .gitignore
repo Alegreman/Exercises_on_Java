@@ -1,12 +1,33 @@
-*.class
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+import static javax.swing.JOptionPane.*;
+public class Array2DEntero
+   {
+      private int ren,col;
+      private int M[][];
+      public Array2DEntero ()
+         {
+               ren=col=0;      
+         }//b1
+      public Array2DEntero(int col)
+         {
+            this.col=col;
+            ren=(int)Math.pow(2,col);
+            M=new int [ren][this.col];
+            for(int r=0;r<ren;r++)
+               for(int c=0;c<this.col;c++)
+               M[r][c]=(int)Math.random()*100;
+         }//b2
+         public void mostrar()
+            {
+               String cad="";
+               for(int r=0;r<ren;r++){
+                  for(int c=0;c<this.col;c++)cad=cad+M[r][c]+" ";
+               cad=cad+"\n";
+               }//for r
+               showMessageDialog(null,cad);
+            }//mostrar
+            
+      public static void main(String ar[])
+         {
+               Array2DEntero a=new Array2DEntero(3); a.mostrar();
+         }//main
+         }//class
